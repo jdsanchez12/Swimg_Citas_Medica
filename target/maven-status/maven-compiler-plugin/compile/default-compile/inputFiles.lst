@@ -1,10 +1,14 @@
 C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\com\mycompany\prycitasmedicas\PryCitasMedicas.java
+C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\controlador\CitaControlador.java
 C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\controlador\especialidad.java
 C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\controlador\MedicoControlador1.java
 C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\controlador\PacienteControlador.java
+C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\modelo\CitaModelo.java
 C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\modelo\Especialidad.java
 C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\modelo\MedicoModelo1.java
 C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\modelo\PacienteModelo.java
+C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\vista\citas\Ingresar.java
+C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\vista\citas\Listado.java
 C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\vista\especialidad\Ingresar.java
 C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\vista\especialidad\Listado.java
 C:\Users\HP\Documents\NetBeansProjects\PryCitasMedicas\src\main\java\vista\medicos\Ingresar.java

@@ -135,24 +135,75 @@ public class Ingresar extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnguardarActionPerformed
-   String cedula = txtcedula.getText().trim();
+       // Obtener los valores de los campos
+    String cedula = txtcedula.getText().trim();
     String nombre = txtnombre.getText().trim();
-    int edad=Integer.parseInt(txtedad.getText());
-    boolean sexo = cbxsexo.getSelectedItem().toString().equals("HOMBRE");
+    String edadText = txtedad.getText().trim();
+    boolean sexo = "HOMBRE".equals(cbxsexo.getSelectedItem().toString());
+    String nombreEspecialidad = cbx_ListadoEspecialidad.getSelectedItem().toString().trim();
 
-String nombreEspecialidad=cbx_ListadoEspecialidad.getSelectedItem().toString();
+    // Validar campos obligatorios
+    if (cedula.isEmpty() || nombre.isEmpty() || edadText.isEmpty() || nombreEspecialidad.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // Validar formato de la cédula (10 dígitos numéricos únicos)
+    if (!cedula.matches("\\d{10}")) {
+        JOptionPane.showMessageDialog(this, "La cédula debe contener exactamente 10 dígitos numéricos", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
     
- especialidad ec=especialidad.getInstancia();
- Especialidad em_nombre=ec.obtenerPorNombre(nombreEspecialidad);
- 
- MedicoControlador1 mc=MedicoControlador1.getInstancia();
- mc.guardar(em_nombre, cedula, nombre, edad, sexo);
-        JOptionPane.showMessageDialog(this, "INGRESADO EXITOSAMENTE");
-    
+    // Validar si la cédula ya existe en el sistema
+    MedicoControlador1 mc = MedicoControlador1.getInstancia();
+    for (MedicoModelo1 medico : mc.listadoCompletoPorCedula(cedula)) {
+        if (medico.getCedula().equals(cedula)) {
+            JOptionPane.showMessageDialog(this, "La cédula ya está registrada", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    }
+
+    // Validar que el nombre solo contenga letras y espacios
+    if (!nombre.matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ\\s]+")) {
+        JOptionPane.showMessageDialog(this, "El nombre solo puede contener letras y espacios", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // Validar edad
+    int edad;
+    try {
+        edad = Integer.parseInt(edadText);
+        if (edad < 1 || edad > 120) {
+            JOptionPane.showMessageDialog(this, "La edad debe ser un número entre 1 y 120", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "La edad debe ser un número válido", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // Obtener la instancia de la especialidad
+    especialidad ec = especialidad.getInstancia();
+    Especialidad em_nombre = ec.obtenerPorNombre(nombreEspecialidad);
+
+    if (em_nombre == null) {
+        JOptionPane.showMessageDialog(this, "Especialidad no válida", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+    }
+
+    // Guardar los datos en el controlador
+    mc.guardar(em_nombre, cedula, nombre, edad, sexo);
+
+    // Mostrar mensaje de éxito
+    JOptionPane.showMessageDialog(this, "Ingresado exitosamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+
     // Limpiar los campos después de guardar
     txtcedula.setText("");
     txtnombre.setText("");
     txtedad.setText("");
+    cbxsexo.setSelectedIndex(0);
+    cbx_ListadoEspecialidad.setSelectedIndex(0);
+
     }//GEN-LAST:event_btnguardarActionPerformed
 
 

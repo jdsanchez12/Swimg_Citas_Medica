@@ -197,13 +197,13 @@ public class Principal extends javax.swing.JFrame {
     private void IngresarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarCitaActionPerformed
         // TODO add your handling code here:
          contenedor_Principal.removeAll();
-       
+       contenedor_Principal.add(new vista.citas.Ingresar()).setVisible(true);
     }//GEN-LAST:event_IngresarCitaActionPerformed
 
     private void ListadoCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListadoCitaActionPerformed
         // TODO add your handling code here:
          contenedor_Principal.removeAll();
-       
+       contenedor_Principal.add(new vista.citas.Listado()).setVisible(true);
     }//GEN-LAST:event_ListadoCitaActionPerformed
 
     /**

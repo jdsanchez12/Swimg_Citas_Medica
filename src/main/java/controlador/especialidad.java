@@ -40,4 +40,13 @@ public class especialidad {
         }
         return null;
     }
+     public ArrayList<Especialidad> listadoCompletoPorNombre(String nombre){
+    ArrayList<Especialidad>nuevoListado=new ArrayList<>();
+     for (Especialidad e : modelo) {
+         if(e.getNombre().contains(nombre)){
+             nuevoListado.add(e);   
+         }
+     }
+     return nuevoListado;
+}
 }

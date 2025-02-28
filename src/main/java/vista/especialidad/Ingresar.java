@@ -75,10 +75,16 @@ public class Ingresar extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        // TODO add your handling code here:
-       Especialidad em= e.guardar(txtNombre.getText());
-        JOptionPane.showMessageDialog(this,em.getNombre()+" INGRESADO EXITOSAMENTE" );
-        txtNombre.setText("");
+     // TODO add your handling code here:
+String nombre = txtNombre.getText().trim();
+if (!nombre.isEmpty()) {
+    Especialidad em = e.guardar(nombre);
+    JOptionPane.showMessageDialog(this, em.getNombre() + " INGRESADO EXITOSAMENTE");
+    txtNombre.setText("");
+} else {
+    JOptionPane.showMessageDialog(this, "El nombre no puede estar vacío", "Error", JOptionPane.ERROR_MESSAGE);
+}
+
     }//GEN-LAST:event_guardarActionPerformed
 
 

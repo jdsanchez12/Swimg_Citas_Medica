@@ -45,7 +45,13 @@ private void CargarListado(){
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListado = new javax.swing.JTable();
 
-        jLabel1.setText("Buscar NOmbre");
+        jLabel1.setText("Buscar Nombre");
+
+        txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBuscarKeyReleased(evt);
+            }
+        });
 
         tblListado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -86,6 +92,16 @@ private void CargarListado(){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
+         defaultTableModel.setRowCount(0);
+        String nombre=txtBuscar.getText();
+      
+        for(Especialidad ee : e.listadoCompletoPorNombre(nombre)) {
+           Object[]fila={ee.getNombre()};
+            defaultTableModel.addRow(fila);
+        }
+    }//GEN-LAST:event_txtBuscarKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,5 +1,9 @@
 vista\medicos\Ingresar$1.class
+vista\citas\Listado$1.class
 vista\Principal.class
+modelo\CitaModelo.class
+vista\citas\Ingresar.class
+vista\citas\Listado.class
 com\mycompany\prycitasmedicas\PryCitasMedicas.class
 modelo\Especialidad.class
 modelo\PacienteModelo.class
@@ -8,12 +12,15 @@ vista\Principal$3.class
 vista\Principal$8.class
 vista\especialidad\Listado.class
 controlador\especialidad.class
+vista\citas\Ingresar$1.class
 vista\especialidad\Ingresar.class
 vista\medicos\Listado.class
 vista\Principal$6.class
 vista\especialidad\Ingresar$1.class
 vista\pacientes\Listado.class
 controlador\MedicoControlador1.class
+vista\especialidad\Listado$1.class
+controlador\CitaControlador.class
 vista\Principal$1.class
 vista\medicos\Listado$1.class
 vista\Principal$9.class

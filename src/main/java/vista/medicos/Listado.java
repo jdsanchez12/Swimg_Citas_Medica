@@ -100,7 +100,13 @@ private void cargarListadoMedico(){
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtbuscarporcedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtbuscarporcedulaKeyReleased
- 
+      tableModel.setRowCount(0);
+        String cedula=txtbuscarporcedula.getText();
+      
+        for(MedicoModelo1 pm : mc.listadoCompletoPorCedula(cedula)) {
+           Object[]fila={pm.getCedula(),pm.getNombre(),pm.getEdad(),pm.getSexo(),pm.getModelo().getNombre()};
+            tableModel.addRow(fila);
+        }
     }//GEN-LAST:event_txtbuscarporcedulaKeyReleased
 
 
